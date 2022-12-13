@@ -28,7 +28,7 @@ class AddUserController extends Controller
         //find out problem
 
          User::create([
-            //clm=>data->inpt fld
+            //clm=>data var->inpt fld
             'user_name'=>$user->name,
             'user_email'=>$user->email,
             'user_contact'=>$user->contact,
@@ -51,10 +51,7 @@ class AddUserController extends Controller
     public function delete($id=null){
         $deleteUser=User::find($id);
         $deleteUser->delete();
-        notify()->success('success','user deleted successfully');
+        notify()->success('','user deleted successfully');
         return redirect('/user-list');
-
-
-
-    }
+       }
 }

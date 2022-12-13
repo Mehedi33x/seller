@@ -33,7 +33,7 @@
         <!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.html">
+            <a class="nav-link collapsed" href="{{route('customer')}}">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Customers List</span>
             </a>

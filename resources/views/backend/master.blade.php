@@ -35,6 +35,7 @@
     <!-- Template Main CSS File -->
     <link href="{{ url('/backend/assets/css/style.css') }}" rel="stylesheet">
     @notifyCss
+    <style type="text/css"> .notyfy{ z-index:1000000; margin-top:5% }</style>
 
 </head>
 
@@ -43,6 +44,8 @@
     <!-- ======= Header ======= -->
     @include('backend.fixed.header')
     <!-- End Header -->
+    <x:notify-messages />
+
 
     <!-- ======= Sidebar ======= -->
     @include('backend.fixed.sidebar')
@@ -52,7 +55,7 @@
 
     <!-- start Main body -->
     <div class="main" id="main">
-        <x:notify-messages />
+       
         @yield('content')
     </div>
     <!-- End #main -->

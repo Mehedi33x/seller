@@ -29,9 +29,11 @@
                         <td scope="col">{{ $userData->user_address }}</td>
                         <td scope="col">{{ $userData->user_designation }}</td>
                         <td>
-                            <a href="{{ route('delete.user.delete', $userData->id) }}">
-                                Delete
-                            </a>
+                            <button class='btn btn-danger' type="submit">
+                                <a href="{{ route('delete.user.delete', $userData->id) }}" onclick="return confirm('Are you sure to delete?')">
+                                    Delete
+                                </a>
+                            </button>
                         </td>
                     </tr>
                 @endforeach

@@ -1,10 +1,13 @@
 <?php
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\backend\DashController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\AddUserController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CustomerController;
+use App\Http\Controllers\backend\AddProductController;
 use App\Http\Controllers\backend\AddCategoryController;
 
 
@@ -36,6 +39,13 @@ Route::post('/add-category',[AddCategoryController::class,'store'])->name('store
 
 //Product
 Route::get('/product-list',[ProductController::class,'product'])->name('product');
+Route::get('/add-product',[AddProductController::class,'addproduct'])->name('add.product');
+Route::post('/add-product',[AddProductController::class,'store'])->name('store.product');
+Route::get('/delete-product/{id}',[ProductController::class,'deleteproduct'])->name('delete.product');
+
+//customer
+Route::get('/customer',[CustomerController::class,"customer"])->name('customer');
+
 
 
 
