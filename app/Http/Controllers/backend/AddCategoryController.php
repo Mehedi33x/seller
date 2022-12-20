@@ -22,6 +22,7 @@ class AddCategoryController extends Controller
         ]);
 
         Category::create([
+            
             'category_name'=>$category->category_name,
            'description' =>$category->description,
         ]);

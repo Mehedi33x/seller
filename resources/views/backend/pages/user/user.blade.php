@@ -29,11 +29,18 @@
                         <td scope="col">{{ $userData->user_address }}</td>
                         <td scope="col">{{ $userData->user_designation }}</td>
                         <td>
-                            <button class='btn btn-danger' type="submit">
-                                <a href="{{ route('delete.user.delete', $userData->id) }}" onclick="return confirm('Are you sure to delete?')">
-                                    Delete
+
+                            {{-- View --}}
+                            <a href="" class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
+                            {{-- Edit --}}
+                            <a href="{{ route('edit.user',$userData->id) }}" class="btn btn-primary"><i
+                            class="fa-solid fa-pen-to-square"></i>
+                                {{-- Delete --}}
+                                <a href="{{ route('delete.user', $userData->id) }}"
+                                    onclick="return confirm('Are you sure to delete?')" class='btn btn-danger'>
+                                    <i class="fa-solid fa-trash-can"></i>
                                 </a>
-                            </button>
+                                </button>
                         </td>
                     </tr>
                 @endforeach

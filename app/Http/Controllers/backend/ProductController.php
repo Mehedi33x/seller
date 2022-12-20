@@ -11,6 +11,7 @@ class ProductController extends Controller
 {
     public function product(){
         $productdata=Product::paginate(5);
+        // dd($productdata);
         return view('backend.pages.product.productList',compact('productdata'));
     }
     public function deleteproduct($id=null){

@@ -23,7 +23,7 @@ class AddUserController extends Controller
             'designation'=>'required',
 
         ]);
-        
+
         //data insert
         //find out problem
 
@@ -36,22 +36,9 @@ class AddUserController extends Controller
             'user_address'=>$user->address,
             'user_designation'=>$user->designation,
         ]);
-
-        // $identity= new User;
-        // $identity->user_name=$user->input('name');
-        // $identity->user_email=$user->input('email');
-        // $identity->user_contact=$user->input('contact');
-        // $identity->user_password=$user->input('password');
-        // $identity->user_address=$user->input('address');
-        // $identity->save();
         notify()->success('success','user created successfully');
         return redirect('/user-list');
     }
 
-    public function delete($id=null){
-        $deleteUser=User::find($id);
-        $deleteUser->delete();
-        notify()->success('','user deleted successfully');
-        return redirect('/user-list');
-       }
+
 }

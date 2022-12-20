@@ -1,8 +1,8 @@
 @extends('backend.master')
 @section('content')
     <div>
-        <form action="{{route('store.category')}}" method="post">
-        @csrf
+        <form action="{{ route('store.category') }}" method="post">
+            @csrf
             <div class="mb-3">
                 <label for="name" style="font-size: 20px; margin-bottom:10px;font:bold">Category Name</label>
                 <select class="form-select" aria-label="Select Category" name="category_name" id="category_name">
@@ -17,13 +17,16 @@
                     <option value="Gaming">Gaming</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <p style="font-size: 20px; margin-bottom:10px; border:2px font:bolder">Description</p>
                 <textarea id="description" name="description" rows="10" cols="50">
-
                 </textarea>
             </div>
-
+            <div class="mb-3"style="font-size: 20px; margin-bottom:10px;font:bold">
+                <label for="image">Image</label>
+                <input type="file" min="0" class="form-control" id="image" placeholder="Image" name="image">
+            </div>
             <div><button type="submit" class="btn btn-success">Submit</button>
             </div>
 

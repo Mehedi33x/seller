@@ -14,34 +14,38 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Product Image</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Product Price</th>
                     <th scope="col">Specification</th>
                     <th scope="col">Warranty</th>
                     <th scope="col">Stocks</th>
-                    <th scope="col">Action</th>           
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $productdata as $key => $product )
-                <tr>
-                    <th scope="row">{{$key+1}}</th>
-                    <td>{{$product->product_name}}</td>
-                    <td>{{$product->product_price}}</td>
-                    <td>{{$product->specifications}}</td>
-                    <td>{{$product->warranty}} months</td>
-                    <td>{{$product->stocks}}</td>
-                    <td>
-                        <button class="btn btn-primary" type="submit">
-                        <a href="">Edit</a></button>
-                        <button class="btn btn-danger" type="submit">
-                        <a href="{{route('delete.product',$product->id)}}" onclick="return confirm('Are you sure to Delete?')">Delete</a></button>
-                    </td>
-                    
-                </tr>
-                @endforeach         
+                @foreach ($productdata as $key => $product)
+                    <tr>
+                        <th scope="row">{{ $key + 1 }}</th>
+                        <td>{{ $product->product_image }}</td>
+                        <td>{{ $product->product_name }}</td>
+                        <td>{{ $product->product_price }}</td>
+                        <td>{{ $product->specifications }}</td>
+                        <td>{{ $product->warranty }} months</td>
+                        <td>{{ $product->stocks }}</td>
+                        <td>
+                            <button class="btn btn-success" type="submit">
+                                <a href=""><i class="fa-solid fa-eye"></i></a></button>
+                            <button class="btn btn-primary" type="submit">
+                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a></button>
+                            <a href="{{ route('delete.product', $product->id) }}"
+                                onclick="return confirm('Are you sure to delete?')" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-        {{ $productdata->links()}}
+        {{ $productdata->links() }}
     </div>
 @endsection
