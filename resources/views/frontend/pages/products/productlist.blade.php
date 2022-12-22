@@ -47,8 +47,11 @@
                             </div>
                             <div class="product-body">
                                 <p class="product-category">Category</p>
+
                                 <h3 class="product-name"><a href="#">product name goes here</a></h3>
+
                                 <h4 class="product-price">$980.00</h4>
+                                
                                 <div class="dropdown">
                                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="action" data-bs-toggle="dropdown" aria-expanded="false">
                                       Action

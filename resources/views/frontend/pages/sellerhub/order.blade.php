@@ -1,9 +1,10 @@
-@extends('backend.master')
+@extends('frontend.master')
 @section('content')
-<div class="container" >
+
+<div class="container" style="margin-top:30px;margin-bottom:20px">
     <h2 style="font-size: 50px; margin-bottom:20px">Order List</h2>
     
-    <table class="table table-bordered" style="border: 2px solid black;">
+    <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
@@ -25,17 +26,20 @@
                 <td>dxvd</td>
                 <td>dxvd</td>
                 <td>dxvd</td>
-                <td>dxvd</td>
                 <td>
-                    <button class="btn btn-success" type="submit">
-                        <a href=""><i class="fa-solid fa-eye"></i></a></button>
-                    <button class="btn btn-primary" type="submit">
-                        <a href=""><i class="fa-solid fa-pen-to-square"></i></a></button>
-                    <button class="btn btn-danger" type="submit">
-                        <a href="" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash-can"></i></a></button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          Action
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li> 
+                        </ul>
+                      </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
 @endsection

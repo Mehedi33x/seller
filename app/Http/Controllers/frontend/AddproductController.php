@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\backend;
+namespace App\Http\Controllers\frontend;
 
-use notify;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AddProductController extends Controller
+class AddproductController extends Controller
 {
     public function addproduct(){
-        return view('backend.pages.product.addproduct');
+        return view('frontend.pages.products.addproduct');
     }
     public function store(Request $product){
         // dd($product->all());
@@ -38,6 +37,6 @@ class AddProductController extends Controller
 
        ]);
        notify()->success('success','Product created successfully');
-        return redirect('/product-list');
+        return redirect()->route('sellerhub');
     }
 }
