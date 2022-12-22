@@ -2,12 +2,7 @@
 @section('content')
     <div class="container">
         <h2 style="font-size: 50px; margin-bottom:20px">Customer List</h2>
-
-        <div>
-            <a href="">
-                <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Customer</button>
-            </a>
-        </div>
+        
         <table class="table table-bordered" style="border: 2px solid black">
             <thead class="table-dark">
                 <tr>
@@ -16,16 +11,19 @@
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>
                     <th scope="col">Address</th>
+                    <th scope="col">Role</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($customers as $key=>$customer_data)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>dxvd</td>
-                    <td>dxvd</td>
+                    <th scope="row">{{$key+1}}</th>
+                    <td>{{$customer_data->user_name}}</td>
+                    <td>{{$customer_data->user_email}}</td>
+                    <td>{{$customer_data->user_contact}}</td>
+                    <td>{{$customer_data->user_address}}</td>
+                    <td>{{$customer_data->user_designation}}</td>
                     <td>
                         <button class="btn btn-success" type="submit">
                             <a href=""><i class="fa-solid fa-eye"></i></a></button>
@@ -35,6 +33,8 @@
                             <a href="" onclick="return confirm('Are you sure to Delete?')"><i class="fa-solid fa-trash-can"></i></a></button>
                     </td>
                 </tr>
+                @endforeach
+                
             </tbody>
         </table>
     </div>

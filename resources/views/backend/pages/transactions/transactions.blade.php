@@ -2,12 +2,7 @@
 @section('content')
 <div class="container">
     <h2 style="font-size: 50px; margin-bottom:20px">Customer List</h2>
-
-    <div>
-        <a href="">
-            <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Customer</button>
-        </a>
-    </div>
+    
     <table class="table table-bordered" style="border: 2px solid black">
         <thead class="table-dark">
             <tr>

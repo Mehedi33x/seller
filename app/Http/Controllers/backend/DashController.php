@@ -9,6 +9,6 @@ class DashController extends Controller
 {
     public function dashboard()
     {
-        return view('backend.master');
+        return view('backend.pages.dashboard.dashboard');
     }
 }

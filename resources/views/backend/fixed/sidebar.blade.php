@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="">
+            <a class="nav-link " href="{{route('dashboard')}}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -24,7 +24,7 @@
             </a>
         </li><!-- End Contact Page Nav -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('product') }}">
+            <a class="nav-link collapsed" href="{{ route('product.list') }}">
                 <i class="bi bi-basket-fill"></i>
                 <span>Product</span>
             </a>
@@ -59,13 +59,13 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
+            <a class="nav-link collapsed" href="{{route('seller.list')}}">
                 <i class="bi bi-person-lines-fill"></i>
                 <span>Sellers</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-faq.html">
+            <a class="nav-link collapsed" href={{}}>
                 <i class="bi bi-question-circle"></i>
                 <span>F.A.Q</span>
             </a>

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\backend;
 
-use notify;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductListController extends Controller
 {
     public function product(){
         $productdata=Product::paginate(5);

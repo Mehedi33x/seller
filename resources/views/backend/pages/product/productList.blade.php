@@ -5,11 +5,6 @@
     </div>
 
     <div class="container">
-        <div>
-            <a href="{{ route('add.product') }}">
-                <button type="submit" class="btn btn-success" style="margin-bottom: 20px">Add New Product</button>
-            </a>
-        </div>
         <table class="table table-bordered" style="border: 2px solid black">
             <thead class="table-dark">
                 <tr>

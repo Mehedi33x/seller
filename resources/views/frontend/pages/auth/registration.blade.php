@@ -25,7 +25,7 @@
                     <input type="password" placeholder="" name="password" />
 
                     <label>Contact</label>
-                    <input type="text" placeholder="" name="contact" />
+                    <input type="tel" placeholder="" name="contact" />
 
                     <label>Address</label>
                     <input type="text" placeholder="" name="address" />

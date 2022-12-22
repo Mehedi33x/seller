@@ -50,4 +50,7 @@ public function updateUser(Request $editUser,$id){
     return redirect('/user-list');
 }
 
+    public function login(){
+        return view ('backend.pages.login.login');
+    }
 }
