@@ -3,7 +3,7 @@
     <h1 style="font-size: 50px">User List</h1>
     <div class="m-4">
         <a href="{{ route('add.user') }}" class="mt-5">
-            <button type="button" class="btn btn-success">Add New User</button>
+            <button type="button" class="btn btn-success"> + Add User</button>
         </a>
         <br><br>
         <table class="table table-bordered" style="border: 2px solid black">

@@ -24,10 +24,11 @@ use App\Http\Controllers\frontend\AccessoriesController;
 
 
 //back-login
-Route::get('/login', [UserController::class, 'login'])->name('dashboard.login');
+
 
 Route::group(["prefix" => "admin"], function () {
     //Homepage
+    Route::get('/admin-login',[UserController::class,'login'])->name('admin.login');
     Route::get('/', [DashController::class, 'dashboard'])->name('dashboard');
 
     //User

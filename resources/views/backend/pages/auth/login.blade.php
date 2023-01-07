@@ -20,9 +20,6 @@
             <button type="submit">Login</button>
         </form>
     </div>
-    <p class="para-2">
-        Not have an account? <a href="{{ route('register') }}">Sign Up Here</a>
-    </p>
 </body>
 
 </html>

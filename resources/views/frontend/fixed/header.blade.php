@@ -137,7 +137,7 @@
                         <li><a href="{{ route('smartphone') }}">Smartphones</a></li>
                         <li><a href="{{ route('camera') }}">Cameras</a></li>
                         <li><a href="{{ route('accessories') }}">Accessories</a></li>
-                        <li ><a href="{{route('sellerhub')}}">Seller Hub</a></li>
+                        <li><a href="{{route('sellerhub')}}">Seller Hub</a></li>
                     </ul>
                     <!-- /NAV -->
                 </div>

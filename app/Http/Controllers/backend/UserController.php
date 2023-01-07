@@ -56,6 +56,6 @@ class UserController extends Controller
 
     public function login()
     {
-        return view('backend.pages.login.login');
+        return view('backend.pages.auth.login');
     }
 }
