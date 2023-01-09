@@ -48,7 +48,7 @@ class UserController extends Controller
             'user_contact' => $editUser->contact,
             'user_password' => $editUser->password,
             'user_address' => $editUser->address,
-            'user_designation' => $editUser->designation,
+            'user_role' => $editUser->designation,
         ]);
         notify()->success('success', 'user created successfully');
         return redirect()->route('user');

@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('content')
     <div>
-        <form action="{{ route('store.category') }}" method="post">
+        <form action="{{ route('store.category') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" style="font-size: 20px; margin-bottom:10px;font:bold">Category Name</label>

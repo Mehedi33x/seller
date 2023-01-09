@@ -28,7 +28,7 @@
                         <td>{{ $key + 1 }}</td>
                         {{-- $data->column name --}}
 
-                        <td>{{ $category->category_image }}</td>
+                        <td><img width="70px" src="{{url('/uploads/category',$category->image)}}"></td>
                         <td>{{ $category->category_name }}</td>
                         <td>{{ $category->description }}</td>
                         <td>

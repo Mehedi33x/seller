@@ -9,32 +9,27 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
     //show sign in and sign up page
-    public function login(){
-        return view('frontend.pages.auth.login');
+    public function registration()
+    {
+        return view('frontend.pages.auth.signup');
     }
-    public function register(){
-        return view('frontend.pages.auth.registration');
-    }
+    // public function registration()
+    // {
+    //     return view('frontend.pages.auth.');
+    // }
 
-    public function signup(Request $user){
+    public function storeRegistration(Request $user)
+    {
         $user->validate([
-            'name'=>'required|max:50',
-            'email'=>'required|email|max:100|unique:users,user_email',
-            'contact'=>'required',
-            'password'=>'required',
-            'designation'=>'required',
-
+            'email' => 'required|email|max:100|unique:users,user_email',
+            'password' => 'required',
         ]);
         User::create([
             //clm=>data var->inpt fld
-            'user_name'=>$user->name,
-            'user_email'=>$user->email,
-            'user_contact'=>$user->contact,
-            'user_password'=>$user->password,
-            'user_address'=>$user->address,
-            'user_designation'=>$user->designation,
+            'user_email' => $user->email,
+            'user_password' => $user->password,
         ]);
-        notify()->success('success','user created successfully');
+        notify()->success('success', 'user created successfully');
         return redirect('/homepage');
     }
 }

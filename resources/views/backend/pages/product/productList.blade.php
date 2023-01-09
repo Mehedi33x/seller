@@ -3,8 +3,10 @@
     <div style="font-size: 50px; margin-bottom:20px">
         Product List
     </div>
-
-    <div class="container">
+    <div>
+        <a href="{{ route('add.category') }}">
+            <button class="btn btn-success" type="submit" style="margin-bottom:20px">Add New Category</button>
+        </a>
         <table class="table table-bordered" style="border: 2px solid black">
             <thead class="table-dark">
                 <tr>

@@ -9,24 +9,32 @@ use App\Http\Controllers\Controller;
 
 class AddCategoryController extends Controller
 {
-    public function addCategory(){
+    public function addCategory()
+    {
         return view('backend.pages.category.addcategory');
     }
 
-    public function store(Request $category){
+    public function store(Request $category)
+    {
 
         //dd($category->all());
         $category->validate([
-            "category_name"=>'required'
+            "category_name" => 'required'
 
         ]);
-
+        $filename = null;
+        if ($category->hasFile('image')) {
+            $file = $category->file('image');
+            $filename = date('Ymdhis') . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('/uploads/category', $filename);
+        }
         Category::create([
-            
-            'category_name'=>$category->category_name,
-           'description' =>$category->description,
+            //clm=>input
+            'category_name' => $category->category_name,
+            'description' => $category->description,
+            'image' => $filename
         ]);
-        notify()->success('success','Category Created Successfully');
+        notify()->success('success', 'Category Created Successfully');
         return redirect()->route('category.list');
 
 
