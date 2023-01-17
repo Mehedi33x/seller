@@ -14,11 +14,16 @@ class ProductListController extends Controller
         // dd($productdata);
         return view('backend.pages.product.productList', compact('productdata'));
     }
-    public function deleteproduct($id = null)
-    {
-        $deleteproduct = Product::find($id);
-        $deleteproduct->delete();
-        notify()->success('', 'Product has been deleted');
-        return redirect('/product-list');
+    public function addProduct(){
+        return view('backend.pages.product.addproduct');
+
+
     }
+    // public function deleteproduct($id = null)
+    // {
+    //     $deleteproduct = Product::find($id);
+    //     $deleteproduct->delete();
+    //     notify()->success('', 'Product has been deleted');
+    //     return redirect('/product-list');
+    // }
 }

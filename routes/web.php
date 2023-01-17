@@ -33,19 +33,20 @@ Route::group(["prefix" => "admin"], function () {
     Route::get('/', [DashController::class, 'dashboard'])->name('dashboard');
 
     //User
-    Route::get('/user-list', [UserController::class, 'user'])->name('user');
-    Route::get('/add-user', [AddUserController::class, 'addUser'])->name('add.user');
+    Route::get('/dashboard/user-list', [UserController::class, 'user'])->name('user');
+    Route::get('/dashboard/add-user', [AddUserController::class, 'addUser'])->name('add.user');
     Route::post('/add-user', [AddUserController::class, 'store'])->name('store.user');
     Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('edit.user');
     Route::post('/update-user/{id}', [UserController::class, 'updateUser'])->name('update.user');
     Route::get('/delete-user/{id}', [UserController::class, 'delete'])->name('delete.user');
     //Category
-    Route::get('/category-list', [CategoryController::class, 'category'])->name('category.list');
+    Route::get('/dashboard/category-list', [CategoryController::class, 'category'])->name('category.list');
     Route::get('/add-category', [AddCategoryController::class, 'addCategory'])->name('add.category');
     Route::post('/add-category', [AddCategoryController::class, 'store'])->name('store.category');
     Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.Category');
     //Product List backend
-    Route::get('/product-list', [ProductListController::class, 'product'])->name('product.list');
+    Route::get('/dashboard/product-list', [ProductListController::class, 'product'])->name('product.list');
+    Route::get('/dashboard/add-product', [ProductListController::class, 'addProduct'])->name('add.product');
     //customer
     Route::get('/customer', [CustomerController::class, "customer"])->name('customer');
     //Order
@@ -74,10 +75,6 @@ Route::get('/products', [LaptopController::class, 'laptopView'])->name('laptop.v
 // Route::get('/camera', [CameraController::class, 'camera'])->name('camera');
 // Route::get('/accessories', [AccessoriesController::class, 'accessories'])->name('accessories');
 
-// // login
-// Route::get('/homepage/login', [AuthController::class, 'login'])->name('login');
-// Route::get('/homepage/register', [AuthController::class, 'register'])->name('register');
-// Route::post('/homepage/register', [AuthController::class, 'signup'])->name('signup');
 
 //login
 Route::get('/signup', [AuthController::class, 'registration'])->name('auth.signin');

@@ -4,8 +4,8 @@
         Product List
     </div>
     <div>
-        <a href="{{ route('add.category') }}">
-            <button class="btn btn-success" type="submit" style="margin-bottom:20px">Add New Category</button>
+        <a href="{{ route('add.product') }}">
+            <button class="btn btn-success" type="submit" style="margin-bottom:20px">Add Product</button>
         </a>
         <table class="table table-bordered" style="border: 2px solid black">
             <thead class="table-dark">
@@ -14,6 +14,7 @@
                     <th scope="col">Product Image</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Product Price</th>
+                    <th scope="col">Product Category</th>
                     <th scope="col">Specification</th>
                     <th scope="col">Warranty</th>
                     <th scope="col">Stocks</th>
@@ -27,6 +28,7 @@
                         <td>{{ $product->product_image }}</td>
                         <td>{{ $product->product_name }}</td>
                         <td>{{ $product->product_price }}</td>
+                        <td>{{ $product->category}}</td>
                         <td>{{ $product->specifications }}</td>
                         <td>{{ $product->warranty }} months</td>
                         <td>{{ $product->stocks }}</td>
