@@ -4,7 +4,7 @@
 <div class="d-flex align-items-center justify-content-between">
   <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
     <img src="{{url('/backend/assets/img/logo.png')}}" alt="">
-    <span class="d-none d-lg-block">Nice Admin</span>
+    <span class="d-none d-lg-block">GadgetFly</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
@@ -175,8 +175,8 @@
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
-          <h6>Kevin Anderson</h6>
-          <span>Web Designer</span>
+          <h6>{{auth()->user()->name}}</h6>
+          <span>{{auth()->user()->role}}</span>
         </li>
         <li>
           <hr class="dropdown-divider">
@@ -213,7 +213,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="#">
+          <a class="dropdown-item d-flex align-items-center" href="{{route('logout')}}">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
           </a>

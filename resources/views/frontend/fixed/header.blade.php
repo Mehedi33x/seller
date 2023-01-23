@@ -34,7 +34,7 @@
                                     </div><!-- End .header-menu -->
                                 </div>
                             </li>
-                            <li><a href="{{route('auth.signin')}}">Sign in / Sign up</a></li>
+                            <li><a href="{{route('login')}}">Sign in / Sign up</a></li>
                         </ul>
                     </li>
                 </ul><!-- End .top-menu -->

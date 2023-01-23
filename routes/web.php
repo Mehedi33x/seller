@@ -1,11 +1,12 @@
 <?php
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\backend\CartController;
 use App\Http\Controllers\backend\DashController;
-
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\OrderController;
-use App\Http\Controllers\frontend\AuthController;
 use App\Http\Controllers\backend\SellerController;
 use App\Http\Controllers\seller\ProductController;
 use App\Http\Controllers\backend\AddUserController;
@@ -26,12 +27,14 @@ use App\Http\Controllers\frontend\AccessoriesController;
 
 //back-login
 
+Route::get('/login-admin', [AuthController::class, 'login'])->name('login');
+Route::post('/do-login', [AuthController::class, 'do_login'])->name('do.login');
 
-Route::group(["prefix" => "admin"], function () {
-    //Homepage
-    Route::get('/admin-login', [UserController::class, 'login'])->name('admin.login');
-    Route::get('/', [DashController::class, 'dashboard'])->name('dashboard');
 
+Route::group(["middleware" => "auth", 'prefix' => "admin"], function () {
+
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::get('/dashboard', [DashController::class, 'dashboard'])->name('dashboard');
     //User
     Route::get('/dashboard/user-list', [UserController::class, 'user'])->name('user');
     Route::get('/dashboard/add-user', [AddUserController::class, 'addUser'])->name('add.user');
@@ -67,34 +70,32 @@ Route::group(["prefix" => "admin"], function () {
 
 // forntend
 //home-pages
-Route::get('/homepage', [HomepageController::class, 'homepage'])->name('homepage');
-//laptop page
-Route::get('/laptop', [LaptopController::class, 'laptop'])->name('laptop');
-Route::get('/products', [LaptopController::class, 'laptopView'])->name('laptop.view');
-// Route::get('/smartphone', [SmartphoneController::class, 'smartphone'])->name('smartphone');
-// Route::get('/camera', [CameraController::class, 'camera'])->name('camera');
-// Route::get('/accessories', [AccessoriesController::class, 'accessories'])->name('accessories');
+Route::group(['prefix' => ""], function () {
+    Route::get('/', [HomepageController::class, 'homepage'])->name('homepage');
+    //laptop page
+    Route::get('/laptop', [LaptopController::class, 'laptop'])->name('laptop');
+    Route::get('/products', [LaptopController::class, 'laptopView'])->name('laptop.view');
+    // Route::get('/smartphone', [SmartphoneController::class, 'smartphone'])->name('smartphone');
+    // Route::get('/camera', [CameraController::class, 'camera'])->name('camera');
+    // Route::get('/accessories', [AccessoriesController::class, 'accessories'])->name('accessories');
+    //login
+    // Route::post('/singup', [AuthController::class, 'storeRegistration'])->name('registration');
 
-
-//login
-Route::get('/signup', [AuthController::class, 'registration'])->name('auth.signin');
-Route::post('/singup', [AuthController::class, 'storeRegistration'])->name('registration');
-
-// product add in frontend
-// Route::get('/add-product', [ProductController::class, 'addproduct'])->name('add.product');
-// Route::post('/add-product', [ProductController::class, 'store'])->name('store.product');
-// Route::get('/delete-product/{id}', [ProductController::class, 'deleteproduct'])->name('delete.product');
-// Route::get('/product-add', [AddproductController::class, 'addproduct'])->name('product.add');
-
-
-// // seller page
-// Route::get('/homepage/products-list', [ProductController::class, "product"])->name('view.product');
-// Route::get('/sellerhub', [SellerhubController::class, "sellerhub"])->name('sellerhub');
-// Route::get('/order-list', [SellerhubController::class, "order"])->name('order.list');
-// Route::get('/transaction-list', [SellerhubController::class, "transaction"])->name('transaction.list');
+    Route::post('/registration',[AuthController::class,'registration'])->name('registration');
 
 
 
-//For Seller
-Route::get('/seller/dashboard', [DashboardController::class, 'dashboard'])->name('seller.dashboard');
-Route::get('/seller/product-list', [ProductController::class, 'product'])->name('seller.product');
+    // // seller page
+    // Route::get('/homepage/products-list', [ProductController::class, "product"])->name('view.product');
+    // Route::get('/sellerhub', [SellerhubController::class, "sellerhub"])->name('sellerhub');
+    // Route::get('/order-list', [SellerhubController::class, "order"])->name('order.list');
+    // Route::get('/transaction-list', [SellerhubController::class, "transaction"])->name('transaction.list');
+
+
+
+    //For Seller
+    Route::get('/seller/dashboard', [DashboardController::class, 'dashboard'])->name('seller.dashboard');
+    Route::get('/seller/product-list', [ProductController::class, 'product'])->name('seller.product');
+
+
+});

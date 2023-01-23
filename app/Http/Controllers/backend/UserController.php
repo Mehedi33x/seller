@@ -34,21 +34,21 @@ class UserController extends Controller
         //validation
         $editUser->validate([
             'name' => 'required|max:50',
-            'email' => 'required|email|max:100|unique:users,user_email',
+            'email' => 'required|email|max:100|unique:users,email',
             'contact' => 'required',
             'password' => 'required',
-            'designation' => 'required',
+            'role' => 'required',
 
         ]);
         $editUser = User::find($id);
         $editUser->update([
             //clm=>data var->inpt fld
-            'user_name' => $editUser->name,
-            'user_email' => $editUser->email,
-            'user_contact' => $editUser->contact,
-            'user_password' => $editUser->password,
-            'user_address' => $editUser->address,
-            'user_role' => $editUser->designation,
+            'name' => $editUser->name,
+            'email' => $editUser->email,
+            'contact' => $editUser->contact,
+            'password' => $editUser->password,
+            'address' => $editUser->address,
+            'role' => $editUser->role,
         ]);
         notify()->success('success', 'user created successfully');
         return redirect()->route('user');

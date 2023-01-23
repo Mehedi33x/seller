@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label for="Name">Name</label>
                 <input type="name" class="form-control" id="Name" placeholder="Name" name="name"
-                    value='{{ $editUser->user_name }}'>
+                    value='{{ $editUser->name }}'>
                 @error('name')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="Email1" placeholder="Email" name="email"
-                    value="{{ $editUser->user_email }}">
+                    value="{{ $editUser->email }}">
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="contact">Contact</label>
                 <input type="tel" class="form-control" id="contact" placeholder="contact" name="contact"
-                    value="{{ $editUser->user_contact }}">
+                    value="{{ $editUser->contact }}">
                 @error('contact')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="password" name="password"
-                    value="{{ $editUser->user_password }}>
+                    value="{{ $editUser->password }}>
                 @error('password')
 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -48,14 +48,14 @@
         </div>
         <div class="form-group">
             <label for="Inputselect">Address</label>
-            <textarea id="address" name="address" class="form-control" rows="4" cols="50" placeholder="Address">{{ $editUser->user_address }} </textarea>
+            <textarea id="address" name="address" class="form-control" rows="4" cols="50" placeholder="Address">{{ $editUser->address }} </textarea>
 
 
         </div>
 
         <div class="form-group">
-            <label for="Inputselect" name="designation">Select Your Designation</label>
-            <select name='designation' class="form-control">
+            <label for="Inputselect">Select Your Designation</label>
+            <select name='role' class="form-control">
                 <option value="Admin">Admin</option>
                 <option value="Developer/Editor">Developer/Editor</option>
             </select>

@@ -48,8 +48,8 @@
             </div>
 
             <div class="form-group">
-                <label for="Inputselect" name="designation">Select Your Designation</label>
-                <select name='designation' class="form-control">
+                <label for="Inputselect">Select Your Designation</label>
+                <select name='role' class="form-control">
                     <option value="Admin">Admin</option>
                     <option value="Developer/Editor">Developer/Editor</option>
                 </select>

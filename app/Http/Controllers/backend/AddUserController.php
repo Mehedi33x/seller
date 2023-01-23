@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\backend;
 
+use Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Session;
+use Illuminate\Support\Facades\Hash;
 
 class AddUserController extends Controller
 {
@@ -18,12 +19,12 @@ class AddUserController extends Controller
         //dd($user->all());
         //validation
         $user->validate([
+            // clm name
             'name' => 'required|max:50',
-            'email' => 'required|email|max:100|unique:users,user_email',
+            'email' => 'required|email|max:100|unique:users,email',
             'contact' => 'required',
             'password' => 'required',
-            'designation' => 'required',
-
+            'role' => 'required'
         ]);
 
         //data insert
@@ -31,15 +32,15 @@ class AddUserController extends Controller
 
         User::create([
             //clm=>data var->inpt fld
-            'user_name' => $user->name,
-            'user_email' => $user->email,
-            'user_contact' => $user->contact,
-            'user_password' => $user->password,
-            'user_address' => $user->address,
-            'user_designation' => $user->designation,
+            'name' => $user->name,
+            'email' => $user->email,
+            'contact' => $user->contact,
+            'password' => Hash::make($user->password),
+            'address' => $user->address,
+            'role' => $user->role,
         ]);
         notify()->success('success', 'user created successfully');
-        return redirect()->route('user');
+        return to_route('user');
     }
 
 

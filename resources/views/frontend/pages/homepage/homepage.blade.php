@@ -2606,5 +2606,4 @@
     </div><!-- End .icon-boxes-container -->
 </main>
 </div>
-    
 @endsection

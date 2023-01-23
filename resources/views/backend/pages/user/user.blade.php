@@ -14,7 +14,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Contact-Number</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Designation</th>
+                    <th scope="col">Role</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -23,11 +23,11 @@
                 @foreach ($showData as $key => $userData)
                     <tr>
                         <th scope="row">{{ $key + 1 }}</th>
-                        <td scope="col">{{ $userData->user_name }}</td>
-                        <td scope="col">{{ $userData->user_email }}</td>
-                        <td scope="col">{{ $userData->user_contact }}</td>
-                        <td scope="col">{{ $userData->user_address }}</td>
-                        <td scope="col">{{ $userData->user_designation }}</td>
+                        <td scope="col">{{ $userData->name }}</td>
+                        <td scope="col">{{ $userData->email }}</td>
+                        <td scope="col">{{ $userData->contact }}</td>
+                        <td scope="col">{{ $userData->address }}</td>
+                        <td scope="col">{{ $userData->role }}</td>
                         <td>
 
                             {{-- View --}}
