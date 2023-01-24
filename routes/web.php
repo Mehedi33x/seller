@@ -42,14 +42,22 @@ Route::group(["middleware" => "auth", 'prefix' => "admin"], function () {
     Route::get('/edit-user/{id}', [UserController::class, 'edit'])->name('edit.user');
     Route::post('/update-user/{id}', [UserController::class, 'updateUser'])->name('update.user');
     Route::get('/delete-user/{id}', [UserController::class, 'delete'])->name('delete.user');
+
     //Category
     Route::get('/dashboard/category-list', [CategoryController::class, 'category'])->name('category.list');
     Route::get('/add-category', [AddCategoryController::class, 'addCategory'])->name('add.category');
     Route::post('/add-category', [AddCategoryController::class, 'store'])->name('store.category');
     Route::get('/delete-category/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.Category');
+
     //Product List backend
     Route::get('/dashboard/product-list', [ProductListController::class, 'product'])->name('product.list');
-    Route::get('/dashboard/add-product', [ProductListController::class, 'addProduct'])->name('add.product');
+    Route::get('/dashboard/add-product',[ProductListController::class, 'addProduct'])->name('add.product');
+    Route::post('/dashboard/add-product',[ProductListController::class, 'storeProduct'])->name('store.Product');
+    Route::get('/dashboard/edit-product/{id}',[ProductListController::class, 'editProduct'])->name('edit.product');
+    Route::get('/dashboard/delete-product/{id}',[ProductListController::class, 'deleteProduct'])->name('delete.product');
+
+
+
     //customer
     Route::get('/customer', [CustomerController::class, "customer"])->name('customer');
     //Order
