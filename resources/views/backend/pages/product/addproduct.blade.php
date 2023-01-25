@@ -22,15 +22,10 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="category">
-                        <option value="Smart Phones">Smart Phones</option>
-                        <option value="Laptops">Laptops</option>
-                        <option value="Headphone & Speaker">Headphone & Speaker</option>
-                        <option value="Power Bank">Power Bank</option>
-                        <option value="Smart Watch">Smart Watch</option>
-                        <option value="Tablets">Tablets</option>
-                        <option value="Networking">Networking</option>
-                        <option value="Action Camera & Gimble">Action Camera & Gimble</option>
-                        <option value="Gaming">Gaming</option>
+                        @foreach ( $categories as $category )
+                        <option value="{{$category->id}}">{{$category->category_name}}</option>
+
+                        @endforeach
                     </select>
                     @error('category')
                         <div class="alert alert-danger">{{ $message }}</div>

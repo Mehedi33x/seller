@@ -35,7 +35,7 @@
                             <button class="btn btn-success" type="submit">
                                 <a href=""><i class="fa-solid fa-eye"></i></a></button>
                             <button class="btn btn-primary" type="submit">
-                                <a href=""><i class="fa-solid fa-pen-to-square"></i></a></button>
+                                <a href="{{route('edit.category',$category->id)}}"><i class="fa-solid fa-pen-to-square"></i></a></button>
 
                             <a href="{{ route('delete.Category', $category->id) }}"
                                 onclick="return confirm('Are you sure to Delete?')" class="btn btn-danger"><i

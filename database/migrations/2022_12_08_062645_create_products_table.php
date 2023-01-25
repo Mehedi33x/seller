@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('image')->nullable();
             $table->string('name');
             $table->double('price');
-            $table->string('category');
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->integer('quantity');
             $table->string('warranty');
             $table->string('specifications');

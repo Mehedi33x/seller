@@ -19,7 +19,7 @@ class AddCategoryController extends Controller
 
         //dd($category->all());
         $category->validate([
-            "category_name" => 'required'
+            "name" => 'required'
 
         ]);
         $filename = null;
@@ -30,7 +30,7 @@ class AddCategoryController extends Controller
         }
         Category::create([
             //clm=>input
-            'category_name' => $category->category_name,
+            'category_name' => $category->name,
             'description' => $category->description,
             'image' => $filename
         ]);

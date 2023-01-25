@@ -32,7 +32,7 @@
 
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }} BDT</td>
-                            <td>{{ $product->category }}</td>
+                            <td>{{ $product->categoryRelation->category_name }}</td>
                             <td>{{ $product->quantity }} </td>
                             <td>{{ $product->warranty }} Months</td>
                             <td>{{ $product->specifications }}</td>
@@ -44,7 +44,8 @@
                                 <a href="{{ route('edit.product') }}"class="btn btn-success"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
                                 {{-- delete --}}
-                                <a href="{{route('delete.product')}}"class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                <a href="{{ route('delete.product', $product->id) }}"onclick="return confirm('Are you sure to Delete?')"
+                                    class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                             </td>
                         </tr>
                     @endforeach

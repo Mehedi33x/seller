@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 
 class ProductListController extends Controller
 {
@@ -13,10 +14,12 @@ class ProductListController extends Controller
         return view('backend.pages.product.productList',compact('productData'));
     }
     public function addProduct(){
-        return view('backend.pages.product.addproduct');
+        $categories=Category::all();
+        return view('backend.pages.product.addproduct',compact('categories'));
     }
 
     public function storeProduct( Request $request){
+        // dd($request->all());
 
         $request->validate([
             'name'=>'required',
@@ -35,7 +38,7 @@ class ProductListController extends Controller
             'image'=>$filename,
             'name'=>$request->name,
             'price'=>$request->price,
-            'category'=>$request->category,
+            'category_id'=>$request->category,
             'quantity'=>$request->quantity,
             'warranty'=>$request->warranty,
             'specifications'=>$request->specifications,
